@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row offset-2">
+    <button
+      type="button"
+      class="btn btn-primary btn-sm col-lg-3"
+      style="margin-left: 2%"
+      (click)="toggleForm()"
+    >
+      Submit a New Ticket
+    </button>
+    <div class="graybox" *ngIf="displayForm">
+      <div class="form-modal">
+        <form (ngSubmit)="addTicket(ticketForm)" #ticketForm="ngForm">
+          <input
+            class="textbox"
+            type="text"
+            name="userName"
+            id="user-name"
+            placeholder="User Name"
+            ngModel
+          />
+          <br /><br />
+          <input
+            class="textbox"
+            type="text"
+            name="subjectLine"
+            id="subject-line"
+            placeholder="Subject"
+            ngModel
+          />
+          <br /><br />
+          <textarea
+            placeholder="Question Details"
+            name="questionDetails"
+            id="question-details"
+            ngModel
+          ></textarea>
+          <br /><br />
+          <button
+            style="padding-top: 5px; padding-bottom: 5px"
+            class="formButtonDesign"
+          >
+            Submit Ticket
+          </button>
+        </form>
+        <button class="formButtonDesign" (click)="toggleForm()">Cancel</button>
+      </div>
+    </div>
+    <div *ngFor="let t of SortTickets()" id="card" class="card m-3 p-3 col-10">
+      <h2>{{ t.subjectLine }}</h2>
+      <h5>Request From: {{t.userName}}</h5>
+      <p>Date Opened: {{ t.dateOpened | date: "MM/dd/yyyy" }}</p>
+      <p>Status: {{ t.status }}</p>
+      <button
+        type="button"
+        class="btn btn-primary btn-sm col-lg-3"
+        routerLink="/GetTicketById/{{ t.id }}"
+      >
+        Details
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+#card{
+    box-shadow: 2px 3px 10px 0px rgba(0,0,0,0.75);
+}
+
+body{
+  background: rgb(247,247,247);
+background: linear-gradient(90deg, rgba(247,247,247,1) 0%, rgba(213,222,255,1) 50%, rgba(209,209,209,1) 100%);
+
+
+
+}
